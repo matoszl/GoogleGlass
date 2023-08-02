@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Glass</title>
+    <link rel="stylesheet" href="_css/estilo.css">
+    <link rel="stylesheet" href="_css/form.css">
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function CalcTotal(){
+            var qnt = parseInt(document.getElementById('iqnt').value);
+            total = qnt * 1500;
+            document.getElementById('itotal').value = total;
+        }
+    </script>
+</head>
+<body>
+<div id="interface">
+    <header id="cabecalho">
+        <hgroup>
+           <h1>Google Glass</h1>
+            <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+
+        <img id="icone" src="_imagens/contato.png">
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudarFoto('_imagens/home.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                    <li onmouseover="mudarFoto('_imagens/especificacoes.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                    <li onmouseover="mudarFoto('_imagens/fotos.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudarFoto('_imagens/multimidia.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                    <li onmouseover="mudarFoto('_imagens/contato.png')" onmouseout="mudarFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+    </header>
+    <section id="corpo-full">
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+            <hgroup>
+                <h3>Fale Conosco > Contato</h3>
+                <h1>Formulário de Contato</h1>
+                <h2>por Gustavo Guanabara</h2>
+                <h3 class="direita">Atualizado em 01/Maio/2013</h3>
+            </hgroup>
+            </header>
+    <form method="get" id="form" oninput="CalcTotal()">
+        <fieldset id="usuario">
+        <legend>Identificação do Usuário</legend>
+            <p><label for="inome">Nome:</label> <input type="text" name="nome" id="inome" size="30" maxlength="30" placeholder="Nome Completo" required></p>
+            <p><label for="isenha">Senha:</label> <input type="password" name="senha" id="isenha" size="30" minlength="8" placeholder="Digite sua senha" required></p>
+            <p><label for="iemail">E-mail:</label> <input type="email" name="email" id="iemail" size="30" placeholder="Digite seu email" required></p>
+            <p><label for="inasc">Data de Nascimento:</label><input type="date" name="nasc" id="inasc" required></p>
+            <fieldset id="sexo"><legend>Sexo</legend><input type="radio" name="sexo" id="masc" checked> <label for="masc">Masculino</label><br>
+                <input type="radio" name="sexo" id="fem"><label for="fem">Feminino</label></fieldset>
+            
+        </fieldset>
+        <fieldset id="endereco">
+        <legend>Endereço do Usuário</legend>
+            <p><label for="iend">Endereço: </label><input type="text" name="end" id="iend" size="35" placeholder="Ex: Rua 15 de Setembro, 43" required></p>
+            <p><label for="icomp">Complemento:</label> <input type="text" name="comp" id="icomp" size="30" placeholder="Ex: Bloco, Ap, etc"></p>
+            <p><label for="iest">Estado: <select name="est" id="iest" required>
+                <option value="SP" selected>SP</option>
+                <option value="RJ">RJ</option>
+                <option value="MG">MG</option>
+                <option value="ES">ES</option>
+                <option value="PR">PR</option>
+                <option value="SC">SC</option>
+                <option value="RS">RS</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="PE">PE</option>
+                <option value="RN">RN</option>
+                <option value="PI">PI</option>
+                <option value="MA">MA</option>
+                <option value="PB">PB</option>
+                <option value="AL">AL</option>
+                <option value="SE">SE</option>
+            </select> </label></p>
+            <p><label for="icdd">Cidade:<input type="text" name="cdd" id="icdd" list="lcdd" placeholder="Sua cidade" required></label></p>
+            <datalist id="lcdd">
+                <option value="São Paulo"></option>
+                <option value="Rio de Janeiro"></option>
+                <option value="Belo Horizonte"></option>
+                <option value="Vitória"></option>
+                <option value="Curitiba"></option>
+                <option value="Florianópolis"></option>
+                <option value="Porto Alegre"></option>
+                <option value="Salvador"></option>
+                <option value="Fortaleza"></option>
+                <option value="Recife"></option>
+                <option value="Natal"></option>
+                <option value="Teresina"></option>
+                <option value="São Luís"></option>
+                <option value="João Pessoa"></option>
+                <option value="Maceió"></option>
+                <option value="Aracaju"></option>
+            </datalist>
+        </fieldset>
+        <fieldset id="mensagem">
+        <legend>Mensagem do Usuário</legend>
+            <p><label for="iurg">Grau de Urgência: Min<input type="range" min="0" max="10" step="1">Max</label></p>
+            <p><label for="imsg">Mensagem:
+                <textarea id="imsg" rows="5" cols="35"></textarea></label></p>
+        </fieldset>
+        <fieldset id="pedido">
+        <legend>Quero um Google Glass</legend>
+            <p><input type="checkbox" name="ped" id="iped" checked><label for="iped">Gostaria de adquirir um Google Glass quando disponível</label></p>
+            <p><label for="icor">Cor:<input type="color" name="cor" id="icor"></label></p>
+            <p><label for="iqnt">Quantidade:<input type="number" name="qnt" id="iqnt" min="0" max="5" placeholder="Máx 5" value="0" required></label></p>
+            <p><label for="ipre">Preço Total: R$<input type="text" name="total" id="itotal" placeholder="Total a pagar" readonly></label></p>
+        </fieldset>
+
+        <input type="image" src="_imagens/botao-enviar.png" name="send" id="isend">
+    </form>
+<footer id="rodape">
+<p>Copyright &copy; 2023 - by Pedro Matos <br>
+<a href="https://github.com/matoszl">GitHub</a>
+</footer>
+</div>
+</body>
+</html>
